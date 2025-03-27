@@ -1,0 +1,10 @@
+# locals {
+#   ec2_userdata_script = templatefile("${path.module}/scripts/user_data.sh.tpl", {
+#   })
+# }
+
+locals {
+  ec2_userdata_script = templatefile("${path.module}/scripts/efs_mount.sh", {
+
+  })
+}
