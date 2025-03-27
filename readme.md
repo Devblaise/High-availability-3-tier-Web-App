@@ -5,7 +5,7 @@
 This Terraform-managed architecture is designed for a **highly available and scalable** 3-tier web application on AWS. It includes **web, application, and database layers**, ensuring redundancy and security.
 
 ## Architecture Diagram
-![Architecture Diagram](https:)
+![Architecture Diagram](https://raw.githubusercontent.com/Devblaise/High-availability-3-tier-Web-App/refs/heads/main/images/high_availablity_3_tier_app.drawio_.png)
 
 ## Architecture Components
 ### **Networking & Security**
