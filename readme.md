@@ -24,7 +24,7 @@ This Terraform-managed architecture is designed for a **highly available and sca
 - **Amazon RDS (Master & Standby DBs)**: Provides a **highly available, managed relational database** with automatic failover.
 - **DynamoDB**: Used for highly scalable NoSQL storage.
 - **Amazon EFS**: Shared storage for the web servers to maintain state consistency.
-- **AWS Elastic Connect**: Used to establish a **secure and high-performance** connection to the database, reducing latency and improving reliability.
+- **AWS EC2 Instance Connect**: Used to establish ** a secure way to connect to your ec2 instances and RDS over Secure Shell (SSH)** connection to the database, reducing latency and improving reliability.
 
 ### **Security & Secrets Management**
 - **Secrets Manager**: Securely stores and retrieves sensitive data such as database credentials.
