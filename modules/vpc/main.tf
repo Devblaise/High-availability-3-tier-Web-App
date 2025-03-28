@@ -46,6 +46,17 @@ resource "aws_internet_gateway" "main" {
   }
 }
 
+# Single EIP for NAT Gateway
+resource "aws_eip" "nat" {
+  domain = "vpc"
+
+  tags = {
+    Name        = "${var.project_name}-eip"
+    Environment = var.environment
+  }
+}
+
+
 # Single NAT Gateway for cost optimization
 resource "aws_nat_gateway" "main" {
   allocation_id = aws_eip.nat.id
@@ -53,16 +64,6 @@ resource "aws_nat_gateway" "main" {
 
   tags = {
     Name        = "${var.project_name}-nat"
-    Environment = var.environment
-  }
-}
-
-# Single EIP for NAT Gateway
-resource "aws_eip" "nat" {
-  domain = "vpc"
-
-  tags = {
-    Name        = "${var.project_name}-eip"
     Environment = var.environment
   }
 }

@@ -18,8 +18,8 @@ output "amazon-ami-id" {
   value       = module.ec2.ami_id
 }
 
-# output "instance_ids_asg" {
-#   description = "ASG Instance Ids"
-#   value       = module.asg.asg_instance_id
-# }
+output "instance_ids_asg" {
+  description = "ASG Instance Ids"
+  value       = module.asg.asg_instance_id
+}
 

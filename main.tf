@@ -32,7 +32,6 @@ module "security" {
   project_name  = var.project_name
   environment   = var.environment
 }
-
 module "ec2" {
   source = "./modules/ec2"
 
@@ -84,4 +83,22 @@ module "alb" {
   vpc_id            = module.vpc.vpc_id
   subnet_ids        = module.vpc.public_subnet_ids
   security_groups   = [module.security.alb_sg_id]
+}
+
+# ALB Target Group Module
+module "asg" {
+  source = "./modules/asg"
+
+  depends_on        = [module.ec2]
+  alb_instance_type = var.alb_instance_type
+  instance_profile  = module.ec2.iam_instance_profile
+  desired_capacity  = var.desired_capacity
+  min_size          = var.min_size
+  max_size          = var.max_size
+  project_name      = var.project_name
+  environment       = var.environment
+  vpc_id            = module.vpc.vpc_id
+  subnet_ids        = module.vpc.private_subnet_ids
+  security_groups   = [module.security.ec2_sg_id]
+  target_group_arn  = module.alb.target_group_arn
 }
